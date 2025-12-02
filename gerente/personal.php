@@ -3,7 +3,7 @@
 
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
@@ -54,8 +54,8 @@ $empleados = $stmtEmpleados->fetchAll(PDO::FETCH_ASSOC);
                   <td class="px-4 py-3"><?= ucfirst($e['rol']) ?></td>
                   <td class="px-4 py-3"><?= htmlspecialchars($e['fecha_registro']) ?></td>
                   <td class="px-4 py-3">
-                    <a href="/gerente/edit_employee.php?id=<?= $e['id'] ?>"
-                       class="text-indigo-600 hover:underline">Editar</a>
+                    <a href="/Manager-Restaurante/gerente/edit_employee.php?id=<?= $e['id'] ?>"
+                      class="text-indigo-600 hover:underline">Editar</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

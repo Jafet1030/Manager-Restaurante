@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
         try {
             $stmt->execute([$nombre, $email, $hash, $rol]);
-            header('Location: login.php?registered=1');
+            header('Location: /Manager-Restaurante/login.php?registered=1');
             exit;
         } catch (PDOException $e) {
             $errors[] = 'Error al registrar usuario. Quizá el email ya existe.';
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </button>
       </form>
       <p class="mt-4 text-center text-sm">
-        <a href="login.php" class="text-blue-600 hover:text-blue-800">¿Ya tienes cuenta? Inicia sesión</a>
+        <a href="/Manager-Restaurante/login.php" class="text-blue-600 hover:text-blue-800">¿Ya tienes cuenta? Inicia sesión</a>
       </p>
     </div>
   </div>

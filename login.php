@@ -7,9 +7,9 @@ $errors = [];
 if (isset($_SESSION['id'])) {
     // Si ya está autenticado, redirigir según rol
     switch ($_SESSION['rol']) {
-        case 'gerente': header('Location: /gerente/dashboard.php'); break;
-        case 'mesero':  header('Location: /mesero/ordenes.php');   break;
-        case 'cocina':  header('Location: /cocina/ordenes-activas.php'); break;
+        case 'gerente': header('Location: /Manager-Restaurante/gerente/menu.php'); break;
+        case 'mesero':  header('Location: /Manager-Restaurante/mesero/ordenes.php');   break;
+        case 'cocina':  header('Location: /Manager-Restaurante/cocina/ordenes-activas.php'); break;
     }
     exit;
 }
@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['rol']    = $u['rol'];
 
             switch ($u['rol']) {
-                case 'gerente': header('Location: /gerente/dashboard.php'); break;
-                case 'mesero':  header('Location: /mesero/ordenes.php');   break;
-                case 'cocina':  header('Location: /cocina/ordenes-activas.php'); break;
+                case 'gerente': header('Location: /Manager-Restaurante/gerente/menu.php'); break;
+                case 'mesero':  header('Location: /Manager-Restaurante/mesero/ordenes.php');   break;
+                case 'cocina':  header('Location: /Manager-Restaurante/cocina/ordenes-activas.php'); break;
             }
             exit;
         } else {
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           />
         </div>
         <div class="flex justify-between items-center">
-          <a href="register.php" class="text-blue-600 hover:text-blue-800 text-sm">Crear cuenta</a>
+          <a href="/Manager-Restaurante/register.php" class="text-blue-600 hover:text-blue-800 text-sm">Crear cuenta</a>
           <button
             type="submit"
             class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"

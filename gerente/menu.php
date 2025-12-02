@@ -3,7 +3,7 @@
 
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
@@ -81,7 +81,7 @@ $platillos = $pdo->query("
 
     <div class="flex justify-between items-center">
       <h2 class="text-2xl font-semibold">Gestión de Menú</h2>
-      <a href="/gerente/create_menu.php" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+      <a href="/Manager-Restaurante/gerente/create_menu.php" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
         + Crear Nuevo Platillo
       </a>
     </div>
@@ -123,8 +123,8 @@ $platillos = $pdo->query("
                     <?php endif; ?>
                   </td>
                   <td class="px-4 py-3 text-sm space-x-2">
-                    <a href="/gerente/edit_menu.php?id=<?= $p['id'] ?>"
-                       class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs">
+                    <a href="/Manager-Restaurante/gerente/edit_menu.php?id=<?= $p['id'] ?>"
+                      class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs">
                       Editar
                     </a>
                     <form method="POST" class="inline">

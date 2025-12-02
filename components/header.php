@@ -6,7 +6,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 if (!isset($_SESSION['id'])) {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
@@ -16,27 +16,27 @@ $rol = $_SESSION['rol'];
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
     <div class="text-2xl font-bold text-blue-600">
-      <a href="/index.php">RestAI</a>
+      <a href="/Manager-Restaurante/index.php">RestAI</a>
     </div>
 
     <!-- Menú de escritorio -->
     <nav class="hidden md:flex space-x-6">
       <?php if ($rol === 'gerente'): ?>
-        <a href="/gerente/dashboard.php#ventas-tiempo-real" class="text-gray-700 hover:text-blue-600">Métricas</a>
-        <a href="/gerente/dashboard.php#gestion-personal" class="text-gray-700 hover:text-blue-600">Personal</a>
-        <a href="/gerente/dashboard.php#inventario-avanzado" class="text-gray-700 hover:text-blue-600">Inventario</a>
-        <a href="/gerente/dashboard.php#analisis-rese%C3%B1as" class="text-gray-700 hover:text-blue-600">Reseñas</a>
-        <a href="/gerente/menu.php" class="text-gray-700 hover:text-blue-600">Menú</a>
+        <a href="/Manager-Restaurante/gerente/ventas.php" class="text-gray-700 hover:text-blue-600">Métricas</a>
+        <a href="/Manager-Restaurante/gerente/personal.php" class="text-gray-700 hover:text-blue-600">Personal</a>
+        <a href="/Manager-Restaurante/gerente/inventario-avanzado.php" class="text-gray-700 hover:text-blue-600">Inventario</a>
+        <a href="/Manager-Restaurante/gerente/desempeno.php" class="text-gray-700 hover:text-blue-600">Desempeño</a>
+        <a href="/Manager-Restaurante/gerente/menu.php" class="text-gray-700 hover:text-blue-600">Menú</a>
       <?php elseif ($rol === 'mesero'): ?>
-        <a href="/mesero/ordenes.php" class="text-gray-700 hover:text-blue-600">Órdenes</a>
-        <a href="/mesero/mesas.php" class="text-gray-700 hover:text-blue-600">Mesas</a>
-        <a href="/mesero/lealtad.php" class="text-gray-700 hover:text-blue-600">Lealtad</a>
+        <a href="/Manager-Restaurante/mesero/ordenes.php" class="text-gray-700 hover:text-blue-600">Órdenes</a>
+        <a href="/Manager-Restaurante/mesero/mesas.php" class="text-gray-700 hover:text-blue-600">Mesas</a>
+        <a href="/Manager-Restaurante/mesero/lealtad.php" class="text-gray-700 hover:text-blue-600">Lealtad</a>
       <?php elseif ($rol === 'cocina'): ?>
-        <a href="/cocina/ordenes-activas.php" class="text-gray-700 hover:text-blue-600">Cola Producción</a>
-        <a href="/cocina/control-calidad.php" class="text-gray-700 hover:text-blue-600">Calidad</a>
-        <a href="/cocina/reposición.php" class="text-gray-700 hover:text-blue-600">Reposición</a>
+        <a href="/Manager-Restaurante/cocina/ordenes-activas.php" class="text-gray-700 hover:text-blue-600">Cola Producción</a>
+        <a href="/Manager-Restaurante/cocina/control-calidad.php" class="text-gray-700 hover:text-blue-600">Calidad</a>
+        <a href="/Manager-Restaurante/cocina/reposicion.php" class="text-gray-700 hover:text-blue-600">Reposición</a>
       <?php endif; ?>
-      <a href="/logout.php" class="text-red-500 hover:text-red-700">Cerrar Sesión</a>
+      <a href="/Manager-Restaurante/logout.php" class="text-red-500 hover:text-red-700">Cerrar Sesión</a>
     </nav>
 
     <!-- Botón menú móvil -->
@@ -54,21 +54,21 @@ $rol = $_SESSION['rol'];
   <nav id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 backdrop-blur-md">
     <div class="px-4 pt-2 pb-4 space-y-1">
       <?php if ($rol === 'gerente'): ?>
-        <a href="/gerente/dashboard.php#ventas-tiempo-real" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Métricas</a>
-        <a href="/gerente/dashboard.php#gestion-personal" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Personal</a>
-        <a href="/gerente/dashboard.php#inventario-avanzado" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Inventario</a>
-        <a href="/gerente/dashboard.php#analisis-rese%C3%B1as" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Reseñas</a>
-        <a href="/gerente/menu.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Menú</a>
+        <a href="/Manager-Restaurante/gerente/menu.php#ventas-tiempo-real" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Métricas</a>
+        <a href="/Manager-Restaurante/gerente/menu.php#gestion-personal" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Personal</a>
+        <a href="/Manager-Restaurante/gerente/menu.php#inventario-avanzado" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Inventario</a>
+        <a href="/Manager-Restaurante/gerente/menu.php#analisis-rese%C3%B1as" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Reseñas</a>
+        <a href="/Manager-Restaurante/gerente/menu.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Menú</a>
       <?php elseif ($rol === 'mesero'): ?>
-        <a href="/mesero/ordenes.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Órdenes</a>
-        <a href="/mesero/mesas.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Mesas</a>
-        <a href="/mesero/lealtad.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Lealtad</a>
+        <a href="/Manager-Restaurante/mesero/ordenes.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Órdenes</a>
+        <a href="/Manager-Restaurante/mesero/mesas.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Mesas</a>
+        <a href="/Manager-Restaurante/mesero/lealtad.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Lealtad</a>
       <?php elseif ($rol === 'cocina'): ?>
-        <a href="/cocina/ordenes-activas.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Cola Producción</a>
-        <a href="/cocina/control-calidad.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Calidad</a>
-        <a href="/cocina/reposición.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Reposición</a>
+        <a href="/Manager-Restaurante/cocina/ordenes-activas.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Cola Producción</a>
+        <a href="/Manager-Restaurante/cocina/control-calidad.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Calidad</a>
+        <a href="/Manager-Restaurante/cocina/reposición.php" class="block px-3 py-2 text-gray-700 rounded hover:bg-gray-100">Reposición</a>
       <?php endif; ?>
-      <a href="/logout.php" class="block px-3 py-2 text-red-500 rounded hover:bg-gray-100">Cerrar Sesión</a>
+      <a href="/Manager-Restaurante/logout.php" class="block px-3 py-2 text-red-500 rounded hover:bg-gray-100">Cerrar Sesión</a>
     </div>
   </nav>
 

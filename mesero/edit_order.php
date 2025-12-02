@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'mesero') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 

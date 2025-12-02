@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
@@ -14,7 +14,7 @@ require '../config/db.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header('Location: /gerente/personal.php');
+    header('Location: /Manager-Restaurante/gerente/personal.php');
     exit;
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $stmt = $pdo->prepare("UPDATE usuarios SET nombre = ?, rol = ? WHERE id = ?");
         $stmt->execute([$nombre, $rol, $id]);
-        header('Location: /gerente/personal.php');
+        header('Location: /Manager-Restaurante/gerente/personal.php');
         exit;
     }
 }
@@ -40,7 +40,7 @@ $stmt = $pdo->prepare("SELECT id, nombre, rol FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $e = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$e) {
-    header('Location: /gerente/personal.php');
+    header('Location: /Manager-Restaurante/gerente/personal.php');
     exit;
 }
 ?>
@@ -105,7 +105,7 @@ if (!$e) {
             Guardar Cambios
           </button>
           <a
-            href="/gerente/personal.php"
+            href="/Manager-Restaurante/gerente/personal.php"
             class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
           >
             Cancelar

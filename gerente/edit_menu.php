@@ -3,7 +3,7 @@
 
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
@@ -11,7 +11,7 @@ require '../config/db.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header('Location: /gerente/menu.php');
+    header('Location: /Manager-Restaurante/gerente/menu.php');
     exit;
 }
 
@@ -28,7 +28,7 @@ $stmt = $pdo->prepare("
 $stmt->execute([$id]);
 $p = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$p) {
-    header('Location: /gerente/menu.php');
+    header('Location: /Manager-Restaurante/gerente/menu.php');
     exit;
 }
 
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $activo,
                 $id
             ]);
-            header('Location: /gerente/menu.php');
+            header('Location: /Manager-Restaurante/gerente/menu.php');
             exit;
         } catch (Exception $e) {
             $errors[] = 'Error al actualizar en base de datos: ' . $e->getMessage();
@@ -248,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Guardar Cambios
           </button>
           <a
-            href="/gerente/menu.php"
+            href="/Manager-Restaurante/gerente/menu.php"
             class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
           >
             Cancelar

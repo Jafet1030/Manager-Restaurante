@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
-    header('Location: /login.php');
+    header('Location: /Manager-Restaurante/login.php');
     exit;
 }
 
